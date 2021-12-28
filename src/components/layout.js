@@ -8,9 +8,10 @@ import {
   navLinkText,
   siteTitle
 } from './layout.module.css'
+import Footer from './footer'
 
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -18,11 +19,25 @@ const Layout = ({ pageTitle, children }) => {
           title
         }
       }
+      wpPage(slug: { eq: "contact-us" }) {
+        contactPage {
+          companyInformation {
+            address
+            city
+            postcode
+            socials {
+              facebook
+              instagram
+            }
+          }
+        }
+      }
     }
   `)
+  
   return (
     <div className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+      <title>{data.site.siteMetadata.title}</title>
       <nav className={nav}>
       <header className={siteTitle}>{data.site.siteMetadata.title}</header>
         <ul className={navLinks}>
@@ -39,10 +54,12 @@ const Layout = ({ pageTitle, children }) => {
         </ul>
       </nav>
       <main>
-        <h1>{pageTitle}</h1>
         {children}
       </main>
-    </div>
+      <Footer
+        siteTitle={data.site.siteMetadata.title}
+        companyInfo={data.wpPage.contactPage.companyInformation}/>
+    </div> 
   )
 }
 
