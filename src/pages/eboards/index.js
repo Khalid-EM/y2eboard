@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-const EboardPage = ({data: {allWpEboard: {edges}}}) => {
+import { graphql, Link } from 'gatsby'
+import Layout from '../../components/layout'
+const index = ({data: {allWpEboard: {edges}}}) => {
     return (
         <Layout pageTitle="Eboards of Y2Quakz">
             {edges.map((item) => {
         const eboard = item.node.eboardFields;
-        return <p key={item.node.id}>{eboard.name}</p>
+        const slug = item.node.slug;
+        return <Link to = {`/eboards/${slug}`}><p key={item.node.id}>{eboard.name}</p></Link>
         
             })}
         </Layout>
@@ -18,18 +19,18 @@ export const query = graphql`
     allWpEboard {
       edges {
         node {
-          id
           eboardFields {
             board
             discription
-            fieldGroupName
             maxLoad
             maxSpeed
             name
             price
-            wheels
             range
+            wheels
           }
+          id
+          slug
         }
       }
     }
@@ -38,4 +39,4 @@ export const query = graphql`
 `
 
 
-export default EboardPage
+export default index
