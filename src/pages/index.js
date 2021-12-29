@@ -11,7 +11,7 @@ import {
   section,
   subtitle,
   eboards,
-} from "../page.module.css"
+} from "../../src/page.module.css"
 import Eboard from "../components/eboard"
 
 
@@ -51,7 +51,7 @@ const IndexPage = ({
         <p>{homePageFields.featuredEboard.description}</p>
         <div className={eboards}>
           {homePageFields.featuredEboard.eboards.map(eboard => (
-            <Eboard slug={`eboards/${eboard.slug}`} key={eboard.id} eboard={eboard} />
+            <Eboard key={eboard.id} slug={`eboards/${eboard.slug}`} eboard={eboard} />
           ))}
         </div>
       </div>
