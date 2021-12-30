@@ -20,10 +20,7 @@ const EboardsPage = ({
   const image = getImage(eboardsPage.headerEboards.image.localFile)
 
   console.log(image);
-
   //console.log(eboardsPage);
-
-
   return (
 
     <Layout pageTitle="Eboards of Y2Quakz">
@@ -41,9 +38,11 @@ const EboardsPage = ({
           }}
         />
         <div className={eboards}>
-          {eboardsInfo.map(({ node: eboard }) => (
+          {eboardsInfo.map(({ node: eboard }) => {return(
             <Eboard key={eboard.id} slug={eboard.slug} eboard={eboard} />
-          ))}
+          )}
+            
+          )}
         </div>
       </div>
     </Layout>
