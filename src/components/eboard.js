@@ -11,6 +11,9 @@ import {
 
 export const Eboard = ({ eboard, slug }) => {
     const profile = getImage(eboard.eboardFields.picture.localFile)
+
+    console.log("Profile" ,profile);
+
     return (
         <Link className={wrapper} to={slug} >
             <GatsbyImage

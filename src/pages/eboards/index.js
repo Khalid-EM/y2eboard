@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Eboard from "../../components/eboard"
@@ -18,9 +18,11 @@ const EboardsPage = ({
   },
 }) => {
   const image = getImage(eboardsPage.headerEboards.image.localFile)
+ // console.log("LonboardImg", image);
 
-  console.log(image);
-  //console.log(eboardsPage);
+ 
+  console.log("EboardsInfo", eboardsInfo);
+  console.log("EboardsPage", eboardsPage);
   return (
 
     <Layout pageTitle="Eboards of Y2Quakz">
@@ -37,12 +39,17 @@ const EboardsPage = ({
             __html: eboardsPage.headerEboards.description,
           }}
         />
-        <div className={eboards}>
-          {eboardsInfo.map(({ node: eboard }) => {return(
+
+        {/* <div>
+          {eboardsInfo.map(({ node: eboard }) => (
             <Eboard key={eboard.id} slug={eboard.slug} eboard={eboard} />
-          )}
-            
-          )}
+          ))}
+        </div> */}
+
+        <div className={eboards}>
+          {eboardsInfo.map(({ node: eboard }) => (
+            <Eboard key={eboard.id} slug={eboard.slug} eboard={eboard} />
+          ))}
         </div>
       </div>
     </Layout>
@@ -75,7 +82,7 @@ query{
           name
           picture {
             localFile {
-              childrenImageSharp {
+              childImageSharp {
                 gatsbyImageData(placeholder: BLURRED, transformOptions: {grayscale: true})
               }
             }
@@ -88,8 +95,6 @@ query{
     }
   }
 }
-
-
 `
 
 

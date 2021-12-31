@@ -22,6 +22,9 @@ const IndexPage = ({
 }) => {
   const image = getImage(homePageFields.headerHome.picture.localFile)
 
+
+  console.log("LonboardImg" , image);
+  
   return (
     <Layout>
       <div className={header}>
