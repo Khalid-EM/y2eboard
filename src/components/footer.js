@@ -12,8 +12,7 @@ const Footer = ({ siteTitle, companyInfo }) => {
       <div className={wrapper}>
         <div>
           <p className={title}>{siteTitle}</p>
-          <p>Codobi</p>
-          <p>All rights reserved.</p>
+          &copy; {new Date().getFullYear()} Y2EBOARD | All right reserved | Terms Of Service | Privacy
         </div>
         <div>
           <p>{`${companyInfo.address}, ${companyInfo.postcode} ${companyInfo.city}`}</p>

@@ -13,6 +13,9 @@ import {
   eboardInfo,
   eboardPictures,
   eboardPicture,
+  eboardInfomation,
+  eboardInfomation2,
+  eboardImagetitle,
 } from "../../page.module.css"
 
 
@@ -34,49 +37,78 @@ const EboardPage = ({
     <Layout pageTitle="Eboard Template">
 
       <div className={header}>
+
         <div className={headerInfo}>
-          {eboard.name && (
-            <h3 className={eboardName}>{eboard.name}</h3>
-          )}
+          <h1 className={fullName}>
+            {eboard.name}
+          </h1>
+
+          <div
+            className={eboardDescription}
+            dangerouslySetInnerHTML={{ __html: eboard.discription }}
+          />
+
           <div className={eboardTerms}>
+            <p>Motor peak wattage</p>
             {terms.map((term, i) => (
               <span>
                 {term.name} {i + 1 < terms.length && "- "}
               </span>
             ))}
           </div>
-          <h1 className={fullName}>
-            {eboard.name}
-          </h1>
-          <div
-            className={eboardDescription}
-            dangerouslySetInnerHTML={{ __html: eboard.description }}
-          />
-          <p>
-            <span className={eboardInfo}>Price:</span> € {eboard.price}
-          </p>
-          <p>
-            <span className={eboardInfo}>Range:</span> {eboard.range} km
-          </p>
-          <p>
+
+
+
+          {/* <p>
             <span className={eboardInfo}>Max load:</span> {eboard.maxLoad} kg
-          </p>
-          <p>
-            <span className={eboardInfo}>Max speed:</span> {eboard.maxSpeed} km/h
           </p>
           <p>
             <span className={eboardInfo}>Board:</span> {eboard.board}
           </p>
           <p>
             <span className={eboardInfo}>Wheels:</span> {eboard.wheels}
-          </p>
+          </p> */}
+
+        </div >
+
+        <div className={eboardImagetitle}>
+          <GatsbyImage
+            className={headerPicture}
+            image={image}
+            alt={eboard.picture.altText} //Research
+          />
+          {eboard.name && (
+            <h1 className={eboardName}>{eboard.name}</h1>
+          )}
         </div>
-        <GatsbyImage
-          className={headerPicture}
-          image={image}
-          alt={eboard.picture.altText} //Research
-        />
+
+
       </div>
+
+      <div className={eboardInfomation}>
+        <p>
+          <span className={eboardInfo}>Price:</span> € {eboard.price}
+        </p>
+        <p>
+          <span className={eboardInfo}>Max speed:</span> {eboard.maxSpeed} km/h
+        </p>
+        <p>
+          <span className={eboardInfo}>Range:</span> {eboard.range} km
+        </p>
+      </div>
+
+      <div className={eboardInfomation2}>
+      <p>
+        <span className={eboardInfo}>Max load:</span> {eboard.maxLoad} kg
+      </p>
+      <p>
+        <span className={eboardInfo}>Board:</span> {eboard.board}
+      </p>
+      <p>
+        <span className={eboardInfo}>Wheels:</span> {eboard.wheels} mm
+      </p>
+      </div>
+
       <div className={eboardPictures}>
         <GatsbyImage className={eboardPicture} image={picture1} alt={eboard.pictures.picture1.altText} />
         <GatsbyImage className={eboardPicture} image={picture2} alt={eboard.pictures.picture2.altText} />
