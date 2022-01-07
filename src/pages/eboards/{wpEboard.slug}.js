@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {
-  header,
-  headerInfo,
-  headerPicture,
+  headerBoard,
+  headerBoardInfo,
+  headerBoardPicture,
   eboardName,
-  fullName,
+  fullEboardName,
   eboardTerms,
   eboardDescription,
   eboardInfo,
@@ -35,54 +35,35 @@ const EboardPage = ({
 
   return (
     <Layout pageTitle="Eboard Template">
+      <h1 className={fullEboardName}>
+        {eboard.name}
+      </h1>
+      <div className={headerBoard}>
 
-      <div className={header}>
-
-        <div className={headerInfo}>
-          <h1 className={fullName}>
-            {eboard.name}
-          </h1>
-
-          <div
-            className={eboardDescription}
-            dangerouslySetInnerHTML={{ __html: eboard.discription }}
-          />
+        <div className={headerBoardInfo}>
+          
+          <summary className={eboardDescription}>{eboard.discription}</summary>
 
           <div className={eboardTerms}>
             <p>Motor peak wattage</p>
             {terms.map((term, i) => (
-              <span>
+              <span key={term.name}>
                 {term.name} {i + 1 < terms.length && "- "}
               </span>
             ))}
           </div>
-
-
-
-          {/* <p>
-            <span className={eboardInfo}>Max load:</span> {eboard.maxLoad} kg
-          </p>
-          <p>
-            <span className={eboardInfo}>Board:</span> {eboard.board}
-          </p>
-          <p>
-            <span className={eboardInfo}>Wheels:</span> {eboard.wheels}
-          </p> */}
-
         </div >
 
         <div className={eboardImagetitle}>
           <GatsbyImage
-            className={headerPicture}
+            className={headerBoardPicture}
             image={image}
-            alt={eboard.picture.altText} //Research
+            alt={eboard.picture.altText} 
           />
           {eboard.name && (
             <h1 className={eboardName}>{eboard.name}</h1>
           )}
         </div>
-
-
       </div>
 
       <div className={eboardInfomation}>
@@ -98,15 +79,15 @@ const EboardPage = ({
       </div>
 
       <div className={eboardInfomation2}>
-      <p>
-        <span className={eboardInfo}>Max load:</span> {eboard.maxLoad} kg
-      </p>
-      <p>
-        <span className={eboardInfo}>Board:</span> {eboard.board}
-      </p>
-      <p>
-        <span className={eboardInfo}>Wheels:</span> {eboard.wheels} mm
-      </p>
+        <p>
+          <span className={eboardInfo}>Max load:</span> {eboard.maxLoad} kg
+        </p>
+        <p>
+          <span className={eboardInfo}>Board:</span> {eboard.board}
+        </p>
+        <p>
+          <span className={eboardInfo}>Wheels:</span> {eboard.wheels} mm
+        </p>
       </div>
 
       <div className={eboardPictures}>
@@ -117,8 +98,6 @@ const EboardPage = ({
     </Layout>
   )
 }
-
-
 
 export const query = graphql`
 query ($id: String) {

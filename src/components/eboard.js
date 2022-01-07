@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
-    wrapper,
-    image,
+    wrapperContainer,
+    eboardImageContainer,
     eboardInfo,
     eboardName,
 } from "./eboard.module.css"
@@ -15,9 +15,9 @@ export const Eboard = ({ eboard, slug }) => {
     console.log("Profile" ,profile);
 
     return (
-        <Link className={wrapper} to={slug} >
+        <Link className={wrapperContainer} to={slug} >
             <GatsbyImage
-                className={image}
+                className={eboardImageContainer}
                 image={profile}
                 alt={eboard.eboardFields.picture.altText}
             />

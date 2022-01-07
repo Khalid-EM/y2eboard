@@ -1,61 +1,81 @@
 /*Home Header section CSS*/
 
-.header {
+.header-home,
+.header-board {
     display: flex;
     justify-content: space-between;
     margin-top: 60px;
     background-image: url("./images/blob.svg");
   }
   
-  .header-info {
+  .header-home-info,
+  .header-board-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     width: 50%;
     max-width: 500px;
     margin-right: 30px;
     background-image: url("./images/blob3edges.svg");
     
   }
-  .header-picture {
+  .header-home-picture,
+  .header-board-picture {
     border-radius: 200px;
     max-width: 400px;
     max-height: 400px;
   }
+
   
-  .header-title {
+  .header-home-title {
     font-size: 4rem;
     line-height: 2rem;
-    letter-spacing: -0.2rem;
-    text-transform: uppercase;
     margin: 0;
     margin-bottom: 30px;
-    
+    text-align: center;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    position: relative;
+    animation-name: colorEyePainUp;
+    animation-duration: 4s;
+  }
+
+
+  @keyframes colorEyePainUp {
+    0%   {color:red; bottom:0px;}
+    25%  {color:#F37139; bottom:15px;}
+    50%  {color:rgb(0, 255, 0); bottom:30px;}
+    75%  {color:#F37139; bottom:15px;}
+    100% {color:red; bottom:0px;}
   }
   
-  .CTA {
+  
+  .CTA-Button {
     display: block;
     background-color: #F37139;
     color: white;
     border: 1px solid #000;
     border-radius: 40px;
     padding: 10px 20px;
-    margin-right: auto;
+    margin-right: 1px;
     margin-top: 20px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
   }
   
-  .CTA:hover {
+  .CTA-Button:hover {
     color: #F37139;
     background-color: #001d7e;
     border: 1px solid #F37139;
+    text-decoration: underline;
+    transform: scale(1.3);
   }
 
 
-  /* // Home Page ALL THE Board Section */
+  /* Home Page ALL THE Board Section */
 
-.subtitle {
+.subtitle-board {
   font-size: 3rem;
   line-height: 3rem;
   letter-spacing: 35px;
@@ -63,18 +83,17 @@
   margin: 0;
   margin-bottom: 30px;
   background-image: url("./images/blob3edges.svg");
-  
 }
 
-.section {
+.section-board {
   position: relative;
   margin-top: 180px;
   text-align: center;
   background-image: url("./images/blob3edges.svg");
 }
 
-.section::before,
-.section::after {
+.section-board::before,
+.section-board::after {
   position: absolute;
   display: inline-flex;
   content: "";
@@ -84,13 +103,13 @@
   z-index: -1;
 }
 
-.section::before {
+.section-board::before {
   top: -30%;
   left: -70%;
   background-image: url("./images/blob3edges.svg");
 }
 
-.section::after {
+.section-board::after {
   top: -30%;
   right: -60%;
   background-image: url("./images/blob.svg");
@@ -108,22 +127,22 @@
 
 
 
-.hero {
+.bannerpic-Y2eboard {
   width: 120vw;
-  height: 500px;
+  height: 300px;
   transform: translateX(calc((-120vw + 1080px) / 2));
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
 }
 
-.description {
+.description-board {
   max-width: 600px;
   margin: auto;
 }
 
 @media screen and (max-width: 1200px) {
-  .hero {
-    transform: translateX(-5%);
+  .bannerpic-Y2eboard {
+    transform: translateX(-10%);
   }
 }
 
@@ -144,17 +163,31 @@
   margin: 0.5rem 0 1rem 0;
 }
 
-.full-name {
+.full-eboard-name {
   font-size: 3rem;
   text-transform: uppercase;
   margin: 2rem  ;
   line-height: 60px;
-  
+  text-align: center;
+  letter-spacing: 5px;
+  position: relative;
+  animation-name: colorEyePainUp;
+  animation-duration: 4s;
 }
 
+
+
+@keyframes colorEyePainUp {
+  0%   {color:red; bottom:0px;}
+  25%  {color:#F37139; bottom:15px;}
+  50%  {color:rgb(0, 255, 0); bottom:30px;}
+  75%  {color:#F37139; bottom:15px;}
+  100% {color:red; bottom:0px;}
+}
+
+.home-discription,
 .eboard-description {
   margin-bottom: 2rem;
-
 }
 
 .eboard-description p {
@@ -187,7 +220,6 @@
   justify-content: space-around;
   align-content: center;
   font-weight: 600;
-  
   color: #F37139;
   font-size: 20px;
   margin-top: 35px;
@@ -209,8 +241,6 @@
 .eboard-pictures::after {
   position: absolute;
   display: inline-flex;
-  content: "";
-
   z-index: -1;
 
 }
@@ -235,7 +265,7 @@
 }
 
 .eboard-picture {
-  border-radius: 500px;
+  border-radius: 200px;
   width: 28vw;
   height: 50vw;
   max-width: 600px;
@@ -245,5 +275,125 @@
 .eboard-imagetitle{
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 25px;
+}
+
+@media screen and (max-width: 1000px) { 
+
+  .eboard-infomation p,
+  .eboard-infomation2 p{
+    display: flex;
+    flex-direction: column;
+
+  }
+
+}
+
+@media screen and (max-width: 880px) {
+  .full-eboard-name {
+    font-size: 2.5rem;
+  }
+  }
+
+
+@media screen and (max-width: 620px) {
+  .header-home,
+  .header-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    background-image: none;
+  }
+  .header-home-title{
+    font-size: 3rem;
+    line-height: 2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  .subtitle-board {
+    font-size: 2rem;
+    line-height: 2rem;
+    letter-spacing: 25px;
+  }
+  .full-eboard-name {
+    font-size: 2rem;
+    
+  }
+
+  .header-home-info,
+  .header-board-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 40px;
+  }
+
+
+  .eboard-infomation,
+  .eboard-infomation2{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px ;
+    align-content: center;
+  }
+
+  .eboard-infomation p{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+    column-gap: 20px;
+  }
+
+  .eboard-infomation2 p{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 20px;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 570px) {
+    .eboards {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      justify-content: space-between;
+      margin-top: 120px;
+      flex-wrap: wrap;
+      transform: scale(1.4);
+      
+    }
+
+    .eboard-pictures {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      z-index: -1;
+      margin-top: 120px;
+      background-image: none;
+    }
+    .eboard-pictures {
+      transform: scale(1.8);  
+      background-image: url("./images/blob3edges.svg");
+    }
+
+    .header-home-title{
+    font-size: 2rem;
+    line-height: 2rem;
+    letter-spacing: 6px;
+    }
+
+  }
+  
+
 }

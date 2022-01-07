@@ -4,11 +4,11 @@ import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Eboard from "../../components/eboard"
 import {
-  hero,
-  section,
-  subtitle,
+  bannerpicY2eboard,
+  sectionBoard,
+  subtitleBoard,
   eboards,
-  description,
+  descriptionBoard,
 } from "../../page.module.css"
 
 const EboardsPage = ({
@@ -21,30 +21,20 @@ const EboardsPage = ({
  // console.log("LonboardImg", image);
 
  
-  console.log("EboardsInfo", eboardsInfo);
-  console.log("EboardsPage", eboardsPage);
+  //console.log("EboardsInfo", eboardsInfo);
+  //console.log("EboardsPage", eboardsPage);
   return (
 
     <Layout pageTitle="Eboards of Y2Quakz">
       <GatsbyImage
-        className={hero}
+        className={bannerpicY2eboard}
         image={image}
         alt={eboardsPage.headerEboards.image.altText}
       />
-      <div className={section}>
-        <h2 className={subtitle}>{eboardsPage.headerEboards.title}</h2>
-        <div
-          className={description}
-          dangerouslySetInnerHTML={{
-            __html: eboardsPage.headerEboards.description,
-          }}
-        />
-
-        {/* <div>
-          {eboardsInfo.map(({ node: eboard }) => (
-            <Eboard key={eboard.id} slug={eboard.slug} eboard={eboard} />
-          ))}
-        </div> */}
+      <div className={sectionBoard}>
+        <h2 className={subtitleBoard}>{eboardsPage.headerEboards.title}</h2>
+        
+        <summary className={descriptionBoard}>{eboardsPage.headerEboards.description}</summary>
 
         <div className={eboards}>
           {eboardsInfo.map(({ node: eboard }) => (

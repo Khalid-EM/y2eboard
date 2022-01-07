@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { 
+import {
   container,
   nav,
   navLinks,
@@ -34,12 +34,14 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  
+
   return (
     <div className={container}>
       <title>{data.site.siteMetadata.title}</title>
       <nav className={nav}>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+        <Link className={siteTitle} to="/">
+          <header >{data.site.siteMetadata.title}</header>
+        </Link>
         <ul className={navLinks}>
           <li className={navLinkItem}>
             <Link className={navLinkText} to="/">
@@ -58,8 +60,8 @@ const Layout = ({ children }) => {
       </main>
       <Footer
         siteTitle={data.site.siteMetadata.title}
-        companyInfo={data.wpPage.contactPage.companyInformation}/>
-    </div> 
+        companyInfo={data.wpPage.contactPage.companyInformation} />
+    </div>
   )
 }
 
